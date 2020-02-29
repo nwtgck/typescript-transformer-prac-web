@@ -16,3 +16,5 @@ const button = document.getElementById('myButton')!;
 button.onclick = () => {
   alert(greeter.greet());
 };
+
+alert("hello, world");

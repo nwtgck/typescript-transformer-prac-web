@@ -1,5 +1,6 @@
 const path              = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const mytransformer     = require('./transformers/my-transformer').default;
 
 const publicPath   = path.resolve(__dirname, 'public');
 const srcPath      = path.resolve(__dirname, 'src');
@@ -23,7 +24,13 @@ module.exports = {
       {
         test: /\.ts$/,
         exclude: /node_modules/,
-        loader: 'ts-loader'
+        loader: 'ts-loader',
+        options: {
+          getCustomTransformers: () => ({
+            before: [mytransformer]
+          }),
+          transpileOnly: true,
+        },
       }
     ]
   },

@@ -4,8 +4,9 @@
   "description": "typescript-transformer-prac",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "webpack-dev-server --watch",
-    "build": "webpack"
+    "build-transformers": "tsc transformers/*.ts",
+    "serve": "npm run build-transformers && webpack-dev-server --watch",
+    "build": "npm run build-transformers && webpack"
   },
   "keywords": [
     "TypeScript",
